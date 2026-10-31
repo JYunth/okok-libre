@@ -1,0 +1,40 @@
+name: Bug report
+description: Something isn't working
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Please leave out personal weight data, and crop or use demo data in screenshots.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      description: Under You, then About.
+      placeholder: 2.0.0
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Phone and Android version
+      placeholder: Pixel 8, Android 15
+    validations:
+      required: true
+  - type: input
+    id: scale
+    attributes:
+      label: Scale model
+      description: If it's related to the scale.
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: For Bluetooth problems, paste the log from You, About, Diagnostics. Check it for anything you don't want public first.
+      render: text

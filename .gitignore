@@ -1,0 +1,15 @@
+work/
+*.apk
+.DS_Store
+
+# Release signing: never commit these
+*.jks
+*.keystore
+keystore.properties
+
+# Local notes and tooling
+private/
+PRODUCT.md
+.agents/
+.claude/
+skills-lock.json

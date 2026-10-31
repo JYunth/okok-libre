@@ -1,0 +1,739 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 3,
+    "identityHash": "20d1b102ab3c15d313d430e363870fbb",
+    "entities": [
+      {
+        "tableName": "roles",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nickname` TEXT NOT NULL, `sex` TEXT NOT NULL, `birthdayEpochDay` INTEGER NOT NULL, `heightCm` INTEGER NOT NULL, `weightGoalKg` REAL, `avatarPath` TEXT, `roleType` TEXT NOT NULL, `createdAtEpochSec` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nickname",
+            "columnName": "nickname",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sex",
+            "columnName": "sex",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "birthdayEpochDay",
+            "columnName": "birthdayEpochDay",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "heightCm",
+            "columnName": "heightCm",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "weightGoalKg",
+            "columnName": "weightGoalKg",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "avatarPath",
+            "columnName": "avatarPath",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "roleType",
+            "columnName": "roleType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAtEpochSec",
+            "columnName": "createdAtEpochSec",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "weight_records",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `roleId` INTEGER NOT NULL, `weightKg` REAL NOT NULL, `timestampEpochSec` INTEGER NOT NULL, `bmi` REAL NOT NULL, `bodyFatPct` REAL NOT NULL, `boneKg` REAL NOT NULL, `musclePct` REAL NOT NULL, `waterPct` REAL NOT NULL, `bmrKcal` REAL NOT NULL, `bodyAge` INTEGER NOT NULL, `visceralFat` REAL NOT NULL, `score` INTEGER NOT NULL, `idealWeightKg` REAL NOT NULL, `heightCm` REAL NOT NULL, `sex` TEXT NOT NULL, `ageYears` INTEGER NOT NULL, `impedanceOhm` REAL NOT NULL, `scaleProperty` INTEGER NOT NULL, `scaleWeightString` TEXT, `productId` INTEGER, `remark` TEXT, `heartRateBpm` INTEGER, `rawFrameHex` TEXT, `source` TEXT NOT NULL DEFAULT 'LIVE', `deleted` INTEGER NOT NULL, FOREIGN KEY(`roleId`) REFERENCES `roles`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "roleId",
+            "columnName": "roleId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "weightKg",
+            "columnName": "weightKg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestampEpochSec",
+            "columnName": "timestampEpochSec",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bmi",
+            "columnName": "bmi",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bodyFatPct",
+            "columnName": "bodyFatPct",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "boneKg",
+            "columnName": "boneKg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "musclePct",
+            "columnName": "musclePct",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "waterPct",
+            "columnName": "waterPct",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bmrKcal",
+            "columnName": "bmrKcal",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bodyAge",
+            "columnName": "bodyAge",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "visceralFat",
+            "columnName": "visceralFat",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "score",
+            "columnName": "score",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idealWeightKg",
+            "columnName": "idealWeightKg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "heightCm",
+            "columnName": "heightCm",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sex",
+            "columnName": "sex",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ageYears",
+            "columnName": "ageYears",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "impedanceOhm",
+            "columnName": "impedanceOhm",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "scaleProperty",
+            "columnName": "scaleProperty",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "scaleWeightString",
+            "columnName": "scaleWeightString",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "productId",
+            "columnName": "productId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "remark",
+            "columnName": "remark",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "heartRateBpm",
+            "columnName": "heartRateBpm",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "rawFrameHex",
+            "columnName": "rawFrameHex",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "source",
+            "columnName": "source",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "'LIVE'"
+          },
+          {
+            "fieldPath": "deleted",
+            "columnName": "deleted",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_weight_records_roleId_timestampEpochSec",
+            "unique": true,
+            "columnNames": [
+              "roleId",
+              "timestampEpochSec"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_weight_records_roleId_timestampEpochSec` ON `${TABLE_NAME}` (`roleId`, `timestampEpochSec`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "roles",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "roleId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "day_aggregates",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`roleId` INTEGER NOT NULL, `dateEpochDay` INTEGER NOT NULL, `weightKg` REAL NOT NULL, `bmi` REAL NOT NULL, `bodyFatPct` REAL NOT NULL, `boneKg` REAL NOT NULL, `musclePct` REAL NOT NULL, `waterPct` REAL NOT NULL, `bmrKcal` REAL NOT NULL, `bodyAge` REAL NOT NULL, `visceralFat` REAL NOT NULL, PRIMARY KEY(`roleId`, `dateEpochDay`), FOREIGN KEY(`roleId`) REFERENCES `roles`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "roleId",
+            "columnName": "roleId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dateEpochDay",
+            "columnName": "dateEpochDay",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "weightKg",
+            "columnName": "weightKg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bmi",
+            "columnName": "bmi",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bodyFatPct",
+            "columnName": "bodyFatPct",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "boneKg",
+            "columnName": "boneKg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "musclePct",
+            "columnName": "musclePct",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "waterPct",
+            "columnName": "waterPct",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bmrKcal",
+            "columnName": "bmrKcal",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bodyAge",
+            "columnName": "bodyAge",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "visceralFat",
+            "columnName": "visceralFat",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "roleId",
+            "dateEpochDay"
+          ]
+        },
+        "foreignKeys": [
+          {
+            "table": "roles",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "roleId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "scale_devices",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`mac` TEXT NOT NULL, `name` TEXT NOT NULL, `typeId` INTEGER NOT NULL, `productId` INTEGER, `protocolVersion` INTEGER NOT NULL, `protocolType` TEXT NOT NULL, `lastSeenEpochSec` INTEGER NOT NULL, PRIMARY KEY(`mac`))",
+        "fields": [
+          {
+            "fieldPath": "mac",
+            "columnName": "mac",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "typeId",
+            "columnName": "typeId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "productId",
+            "columnName": "productId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "protocolVersion",
+            "columnName": "protocolVersion",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "protocolType",
+            "columnName": "protocolType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastSeenEpochSec",
+            "columnName": "lastSeenEpochSec",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "mac"
+          ]
+        }
+      },
+      {
+        "tableName": "tmp_weights",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `mac` TEXT NOT NULL, `weightKg` REAL NOT NULL, `timestampEpochSec` INTEGER NOT NULL, `impedanceOhm` REAL NOT NULL, `scaleProperty` INTEGER NOT NULL, `scaleWeightString` TEXT, `productId` INTEGER, `fatPct` REAL NOT NULL DEFAULT 0.0, `waterPct` REAL NOT NULL DEFAULT 0.0, `musclePct` REAL NOT NULL DEFAULT 0.0, `bmrKcal` REAL NOT NULL DEFAULT 0.0, `visceralFat` REAL NOT NULL DEFAULT 0.0, `boneKg` REAL NOT NULL DEFAULT 0.0, `heartRateBpm` INTEGER, `scaleRoleId` INTEGER, `rawFrameHex` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mac",
+            "columnName": "mac",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "weightKg",
+            "columnName": "weightKg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestampEpochSec",
+            "columnName": "timestampEpochSec",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "impedanceOhm",
+            "columnName": "impedanceOhm",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "scaleProperty",
+            "columnName": "scaleProperty",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "scaleWeightString",
+            "columnName": "scaleWeightString",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "productId",
+            "columnName": "productId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "fatPct",
+            "columnName": "fatPct",
+            "affinity": "REAL",
+            "notNull": true,
+            "defaultValue": "0.0"
+          },
+          {
+            "fieldPath": "waterPct",
+            "columnName": "waterPct",
+            "affinity": "REAL",
+            "notNull": true,
+            "defaultValue": "0.0"
+          },
+          {
+            "fieldPath": "musclePct",
+            "columnName": "musclePct",
+            "affinity": "REAL",
+            "notNull": true,
+            "defaultValue": "0.0"
+          },
+          {
+            "fieldPath": "bmrKcal",
+            "columnName": "bmrKcal",
+            "affinity": "REAL",
+            "notNull": true,
+            "defaultValue": "0.0"
+          },
+          {
+            "fieldPath": "visceralFat",
+            "columnName": "visceralFat",
+            "affinity": "REAL",
+            "notNull": true,
+            "defaultValue": "0.0"
+          },
+          {
+            "fieldPath": "boneKg",
+            "columnName": "boneKg",
+            "affinity": "REAL",
+            "notNull": true,
+            "defaultValue": "0.0"
+          },
+          {
+            "fieldPath": "heartRateBpm",
+            "columnName": "heartRateBpm",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "scaleRoleId",
+            "columnName": "scaleRoleId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "rawFrameHex",
+            "columnName": "rawFrameHex",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "goals",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `roleId` INTEGER NOT NULL, `initWeightKg` REAL NOT NULL, `targetWeightKg` REAL NOT NULL, `startEpochDay` INTEGER NOT NULL, `endEpochDay` INTEGER, `endWeightKg` REAL, `active` INTEGER NOT NULL, FOREIGN KEY(`roleId`) REFERENCES `roles`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "roleId",
+            "columnName": "roleId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "initWeightKg",
+            "columnName": "initWeightKg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "targetWeightKg",
+            "columnName": "targetWeightKg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startEpochDay",
+            "columnName": "startEpochDay",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endEpochDay",
+            "columnName": "endEpochDay",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "endWeightKg",
+            "columnName": "endWeightKg",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "active",
+            "columnName": "active",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_goals_roleId",
+            "unique": false,
+            "columnNames": [
+              "roleId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_goals_roleId` ON `${TABLE_NAME}` (`roleId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "roles",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "roleId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "reminders",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `timeMinutesOfDay` INTEGER NOT NULL, `enabled` INTEGER NOT NULL, `mon` INTEGER NOT NULL, `tue` INTEGER NOT NULL, `wed` INTEGER NOT NULL, `thu` INTEGER NOT NULL, `fri` INTEGER NOT NULL, `sat` INTEGER NOT NULL, `sun` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timeMinutesOfDay",
+            "columnName": "timeMinutesOfDay",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "enabled",
+            "columnName": "enabled",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mon",
+            "columnName": "mon",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tue",
+            "columnName": "tue",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "wed",
+            "columnName": "wed",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thu",
+            "columnName": "thu",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fri",
+            "columnName": "fri",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sat",
+            "columnName": "sat",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sun",
+            "columnName": "sun",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "weight_status",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`weightRecordId` INTEGER NOT NULL, `mood` INTEGER NOT NULL, `exerciseIntensity` INTEGER NOT NULL, `defecationNum` INTEGER NOT NULL, `specialCase` TEXT, `remark` TEXT, PRIMARY KEY(`weightRecordId`), FOREIGN KEY(`weightRecordId`) REFERENCES `weight_records`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "weightRecordId",
+            "columnName": "weightRecordId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mood",
+            "columnName": "mood",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "exerciseIntensity",
+            "columnName": "exerciseIntensity",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "defecationNum",
+            "columnName": "defecationNum",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "specialCase",
+            "columnName": "specialCase",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "remark",
+            "columnName": "remark",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "weightRecordId"
+          ]
+        },
+        "foreignKeys": [
+          {
+            "table": "weight_records",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "weightRecordId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '20d1b102ab3c15d313d430e363870fbb')"
+    ]
+  }
+}

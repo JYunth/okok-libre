@@ -1,0 +1,37 @@
+name: Scale compatibility
+description: Tell us whether a scale works
+labels: [scale support]
+body:
+  - type: input
+    id: model
+    attributes:
+      label: Scale brand and model
+    validations:
+      required: true
+  - type: dropdown
+    id: result
+    attributes:
+      label: What works?
+      options:
+        - Everything
+        - Weight only, no body composition
+        - It pairs but doesn't weigh
+        - The app can't find it
+    validations:
+      required: true
+  - type: dropdown
+    id: official
+    attributes:
+      label: Does it work with the OKOK International app?
+      options:
+        - "Yes"
+        - "No"
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: Paste the log from You, About, Diagnostics if you can. Check it for anything you don't want public first.
+      render: text
